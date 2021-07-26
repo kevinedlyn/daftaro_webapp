@@ -1,0 +1,80 @@
+<div id="detail">
+    <div id="result" class="container" *ngIf="isLoading === false"> 
+        <div class="form-group col-12">
+            <h1 class="text-center" id="title">
+                <u>
+                    Appointment
+                </u>
+            </h1>
+            <input type="hidden" id="inputDetailId" value="!!appointment ? appointment.appointment_detail_id : ''">
+        </div>
+
+        <form>
+            <div class="form-group row" style="margin-top:20px">
+                <label class="col-sm-2 text-right">No Nota : </label>
+                <div class="col-sm-10 text-left">
+                    <label id="inputId">{{ !!appointment ? appointment.appointment_id : "" }}</label>
+                </div>
+            </div>
+
+            <div class="form-group row" style="margin-top:20px">
+                <label class="col-sm-2 text-right">Provider Name : </label>
+                <div class="col-sm-10 text-left">
+                    <label id="providerName">{{ !!appointment ? appointment.provider_name : "" }}</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 text-right">Patient Name : </label>
+                <div class="col-sm-10 text-left">
+                    <label id="patientName">{{ !!appointment ? appointment.patient_name : "" }}</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 text-right">Patient ID : </label>
+                <div class="col-sm-10 text-left">
+                    <label id="patientID">{{ !!appointment ? appointment.appointment_id : "" }}</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 text-right">Practitioner Name : </label>
+                <div class="col-sm-10 text-left">
+                    <label id="practitionerName">{{ !!appointment ? appointment.practitioner_name : "" }}</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 text-right">Service Name : </label>
+                <div class="col-sm-10 text-left">
+                    <label id="serviceName">{{ !!appointment ? appointment.service_name : "" }}</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 text-right">Jadwal Appointment : </label>
+                <div class="col-sm-8 text-left">
+                    <label id="invoiceDate">{{ !!appointment ? (appointment.appointment_datetime | date:"dd MMM yyyy") : "" }}</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 text-right">Nomor Antrian : </label>
+                <div class="col-sm-10 text-left">
+                    <label id="inputQueue">{{ !!appointment ? appointment.queue_number : "" }}</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 text-right">Status : </label>
+                <div class="col-sm-10 text-left">
+                    <label id="inputStatus">{{ !!appointment ? appointment.status : "" }}</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="isLoading">
+        <app-daftaro-spinner></app-daftaro-spinner>
+    </div>
+</div>

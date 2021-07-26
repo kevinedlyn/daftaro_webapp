@@ -1,0 +1,161 @@
+<div class="container">
+    <form [formGroup]="registrationForm">
+        <h1 class="text-center">Register</h1>
+
+        <div *ngIf="message" class="alert alert-danger">
+            <!-- Gagal Melakukan Registrasi karena email atau no telepon sudah ada -->
+            {{ message }}
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <input formControlName="profile_id" class="form-control" type="hidden">
+                <label for="inputName">Nama Lengkap* :</label>
+                <input id="inputName" [class.is-invalid]="full_name.invalid && full_name.touched" formControlName="full_name" class="form-control" type="text">
+                <div class="invalid-feedback" *ngIf="full_name.invalid && full_name.touched">
+                    Mohon mengisi nama anda dengan valid
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="inputPhone">Nomor Telepon :</label>
+                <input id="inputPhone" formControlName="phone_number" class="form-control"  name="phone_number" maxlength="100">
+            </div>
+
+            <div class="form-group col-sm-4">
+                <label for="inputEmail">Email* :</label>
+                <input id="inputEmail" [class.is-invalid]="(registrationForm.errors?.emailInvalid || email_address.invalid) && email_address.touched" formControlName="email_address" class="form-control" type="text">
+                <div class="invalid-feedback" *ngIf="(registrationForm.errors?.emailInvalid || email_address.invalid) && email_address.touched">
+                    Mohon mengisi email anda dengan valid
+                </div>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <label for="inputPassword">Password* :</label>
+                <input id="inputPassword" [class.is-invalid]="(password.invalid || registrationForm.errors?.passwordInvalid) && password.touched" formControlName="password" class="form-control" type="password">
+                <div class="invalid-feedback" *ngIf="(password.invalid || registrationForm.errors?.passwordInvalid) && password.touched">
+                    Password minimal 7 karakter dengan campuran huruf besar, huruf kecil, dan angka
+                </div>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <label for="inputRepeatPassword">Password Ulang* :</label>
+                <input id="inputRepeatPassword" [class.is-invalid]="((registrationForm.errors?.passwordMissmatch && password.touched) || (registrationForm.errors?.passwordInvalid || repeat_password.invalid)) && repeat_password.touched" formControlName="repeat_password" class="form-control" type="password">
+                <div class="invalid-feedback" *ngIf="(repeat_password.invalid || registrationForm.errors?.passwordInvalid) && repeat_password.touched">
+                    Password minimal 7 karakter dengan campuran huruf besar, huruf kecil, dan angka
+                </div>
+                <div class="invalid-feedback" *ngIf="registrationForm.errors?.passwordMissmatch && repeat_password.touched && password.touched">
+                    Kata Kunci tidak sama dengan Ulangi Kata Kunci
+                </div>
+            </div>
+            
+            <div class="form-group col-sm-3">
+                <label for="inputPhone">Jenis Kelamin :</label>
+                <select class="custom-select" formControlName="gender" id="inputGender">
+                    <option value="Pria">Male</option>
+                    <option value="Wanita">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group col-sm-3">
+                <label for="inpuBirthdate">Tanggal lahir* :</label>
+                <input id="inputBirthdate" [class.is-invalid]="birthdate.invalid && birthdate.touched" formControlName="birthdate" class="form-control" type="date">
+                <div class="invalid-feedback" *ngIf="birthdate.invalid && birthdate.touched">
+                    Mohon mengisi tanggal lahir anda dengan valid
+                </div>
+            </div>
+
+            <div class="form-group col-sm-3">
+                <label for="inputBloodtype">Golongan Darah :</label>
+                <select id="inputBloodtype" formControlName="blood_type" class="custom-select" type="text">
+                    <option value="-">-</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="AB">AB</option>
+                    <option value="O">O</option>
+                </select>
+            </div>
+
+            <div class="form-group col-sm-3">
+                <label for="inputBirthdate">Rhesus :</label>
+                <select id="inputRhesus" formControlName="rhesus" class="custom-select">
+                    <option value="-">-</option>
+                    <option value="?">?</option>
+                    <option value="+">+</option>
+                </select>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <label for="inputIdentityType">Tipe Identitas :</label>
+                <select id="inputIdentityType" formControlName="identity_type" class="custom-select">
+                    <option></option>
+                    <option id="KTP" value="KTP">KTP</option>
+                    <option id="SIM" value="SIM">SIM</option>
+                    <option id="Passport" value="Passport">Passport</option>
+                </select>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <label for="inputIdentityNumber">Nomor Identitas :</label>
+                <input id="inputIdentityNumber" formControlName="identity_number" class="form-control">
+
+            </div>
+
+            <div class="form-group col-sm-4">
+                <label for="inputBPJSNumber">Nomer BPJS :</label>
+                <input id="inputBPJSNumber" class="form-control" maxlength="100"  formControlName="bpjs_number">
+            </div>
+
+            <div class="form-group col-12">
+                <label for="inputAddress">Alamat :</label>
+                <textarea id="inputAddress" class="form-control" maxlength="200" rows="5" formControlName="home_address">
+                </textarea>
+            </div>
+            
+            <div class="form-group col-sm-3">
+                <label for="inputCountry">Negara :</label>
+                <input id="inputCountry" formControlName="home_country" class="form-control" type="text">
+            </div>
+            
+            <div class="form-group col-sm-3">
+                <label for="inputProvinsi">Provinsi :</label>
+                <select id="inputProvinsi" class="custom-select" formControlName="home_province" (change)="changeProvince($event.target.value)">
+                    <option value="{{ province.provinsi }}" *ngFor="let province of provinces">
+                        {{ province.provinsi }}
+                    </option>
+                </select>
+            </div>
+            
+            <div class="form-group col-sm-3">
+                <label for="inputCity">Kota :</label>
+                <select id="inputCity" class="custom-select" formControlName="home_city">
+                    <option value="{{ city }}" *ngFor="let city of cities">
+                        {{ city }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group col-sm-3">
+                <label for="inputCode">Kode Pos :</label>
+                <input id="inputCode" formControlName="home_zipcode" class="form-control" type="text">
+            </div>
+            
+            <div class="form-group col-12">
+                <input type="checkbox" formControlName="agreement">
+                    Saya setuju dengan <a href="https://daftaro.com/privacyPolicy" target="blank"> Kebijakan Privasi </a> dan <a href="https://daftaro.com/tos" target="blank"> Sayarat dan Ketentuan </a>
+                <div class="text-danger" *ngIf="agreement.invalid && agreement.touched">
+                    Mohon membaca dan menyetujui Kesepakatan
+                </div>
+            </div>
+            
+            <div class="form-group col-12 text-center">
+                <button type="submit" class="btn btn-success" (click)="submit()">
+                    <span>
+                        <i class="fas fa-check-circle" style="margin-right: 10px;"></i>
+                        Create Account
+                    </span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

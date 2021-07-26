@@ -1,0 +1,49 @@
+#logo {
+    width: 200px;
+}
+
+#providerName {
+    text-decoration: underline;
+}
+
+#body {
+    margin-top: 30px;
+}
+
+/*
+#receipt {
+    border-top: 5px solid black;
+    margin-top: 30px;
+}
+*/
+
+#bodyTable {
+    width: 100%;
+}
+
+#bodyTable > thead > tr {
+    border-top: 3px solid gray;
+    border-bottom: 3px solid gray;
+}
+
+#bodyTable > thead > tr > th {
+    padding: 15px 0px;
+}
+
+.firstRow {
+    line-height : 30px;
+}
+
+.secondRow {
+    line-height : 100px;
+}
+
+.separator {
+    border-bottom: 1px solid black;
+}
+
+
+#footer {
+    padding-top: 10px;
+    border-top: 3px solid gray;
+}

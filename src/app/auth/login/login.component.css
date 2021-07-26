@@ -1,0 +1,12 @@
+#loginUsername {
+    border-top-left-radius: 5px;
+}
+
+#loginPassword {
+    border-top: 1px solid #eeeeee;
+    border-bottom-left-radius: 5px;
+}
+
+#forgotPasswordLink {
+    margin-top: 10px;
+}

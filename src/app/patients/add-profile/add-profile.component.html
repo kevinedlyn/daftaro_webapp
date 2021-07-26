@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<div id="result" class="container" *ngIf="isLoading === false">
+    <h1 class="text-center" style="margin-top: 20px;">Add Patient</h1>
+
+    <div *ngIf="message" class="alert alert-danger col-12">
+        {{message}}
+    </div>
+
+    <!--
+        <div *ngIf="message" style="margin-top: 20px; margin-left: 20px;">
+            <div class="alert alert-success text-center" role="alert">
+                {{ message }}
+            </div>
+        </div>
+
+    <div *ngIf="is_exist_profile && exist && !access" class="alert alert-danger col-12">
+        Profile sudah terlink
+    </div>
+    
+    -->
+    
+    <app-detail-profile [profileForm]="profileForm" [profile]="profile"></app-detail-profile>
+
+    <div class="form-group text-center">
+        <button (click)="create()" type="submit" class="btn btn-success">
+            <span>
+                <i class="fas fa-check-circle" style="margin-right: 10px;"></i>
+                Tambah Pasien
+            </span>
+        </button>
+    </div>
+</div>
+
+<h1 *ngIf="isLoading">
+    <app-daftaro-spinner></app-daftaro-spinner>
+</h1>

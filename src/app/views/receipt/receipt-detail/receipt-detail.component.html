@@ -1,0 +1,96 @@
+<div id="detail">
+    <div class="container" *ngIf="isLoading === false">
+        <div class="row">
+            <div class="col-12">
+                <div id="header" class="row">
+                    <div class="form-group col-8" class="text-left" style="margin-right: auto;">
+                        <img id="logo" src="../../assets/images/Logo Named.svg" >
+                        <h4 id="providerName"> {{ !!appointment ? appointment.provider_name : "" }} </h4>
+                        <h5 id="address"> {{ !!appointment ? appointment.address : "" }} </h5>
+                        <h5 id="phone_number"> {{ !!appointment ? appointment.phone_number : "" }} </h5>
+                    </div>
+
+                    <div class="form-group col-4" style="margin-left: auto;">
+                        <label for="invoiceDate" class="col-form-label">Tanggal Invoice</label>
+                        <input type="text" id="invoiceDate" class="form-control" [ngModel]="(!!appointment ? (appointment.issued_at | date:'dd-MMM-yyyy') : '')" disabled>
+                        <label for="inputAppointmentId" class="col-form-label">No Invoice</label>
+                        <input type="text" id="inputAppointmentId" class="form-control" [ngModel]="(!!appointment ? appointment.appointment_id : '')" disabled>
+                    </div>
+                </div>
+
+                <div id="body">
+                    <table id="bodyTable">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Tanggal Pertemuan</th>
+                                <th class="text-center">Nama</th>
+                                <th class="text-center">Keterangan</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let detail of details">
+                                <tr class='firstRow'>
+                                    <td class="index"> {{ detail.appointment_datetime | date:'dd/MM/yy HH:mm' }}</td>
+                                    <td class="text-center"> {{ detail.patient_name }} </td> 
+                                    <td class="text-center"> {{ "Biaya Registrasi " +detail.service_name }} </td>
+                                    <td class="text-center"> {{ detail.status }} </td>
+                                    <td class="text-right"> {{ detail.registration_fee | currency:"IDR":"":".0" }} </td>
+                                </tr>
+
+                                <tr class="secondRow">
+                                    <td class="index"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"> {{ "Biaya Konsultasi " + detail.practitioner_name }} </td>
+                                    <td class="text-center"></td>
+                                    <td class="text-right"> {{ detail.consultation_fee | currency:"IDR":"":".0" }} </td> 
+                                </tr>
+
+                                <tr class="separator"></tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--
+                    $("#inputStatus").val(response['appointment']['status']);
+                    $("#inputTotal").val(response['appointment']['total_fee']);
+                -->
+
+                <div id="footer" style="width: auto;">
+                    <div class="row">
+                        <div class="form-group col-sm-6"></div>
+                        <div class="form-group col-sm-3">
+                            <label for="inputStatus" class="col-from-label font-weight-bold">Status Bayar : </label>
+                            <input type="text" disabled id="inputStatus" class="form-control text-center" [ngModel]="!!appointment ? appointment.status : ''">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label for="inputTotal" class="col-from-label font-weight-bold">Jumlah Bayar : </label>
+                            <input type="text" disabled id="inputTotal" class="form-control text-right" [ngModel]="!!appointment ? (appointment.total_fee | currency:'IDR':'':'.0') : ''">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="paymentList" style="width: 100%;" *ngFor="let payment of payments">
+                    <div class="row">
+                        <div class="form-group col-sm-2">
+
+                        </div>
+                        <div class="form-group col-sm-5">
+                        </div>
+
+                        <div class="form-group col-sm-5">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="isLoading">
+        <app-daftaro-spinner></app-daftaro-spinner>
+    </div>
+</div>

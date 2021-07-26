@@ -1,0 +1,41 @@
+<ng-container *ngIf="false; else loadingForm">
+    <app-daftaro-spinner></app-daftaro-spinner>
+</ng-container>
+
+<ng-template #loadingForm>
+    <div class="text-center">
+        <form class="simple-form" id="formLogin">
+            <a routerLink="/">
+                <img class="mb-4" src="../../assets/images/logo.png" alt="logo daftaro" width="72" height="72">
+            </a>
+
+            <h1 class="h3 mb-3 font-weight-normal">Patient Login</h1>
+
+            <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                {{ errorMessage }}
+            </div>
+
+            <label for="inputUsername" class="sr-only"> Username </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <i class="fas fa-user input-icon" id="loginUsername"></i>
+                </div>
+                <input id="inputUsername" type="text" class="form-control" placeholder="Username" aria-label="Username" [(ngModel)]="username" [ngModelOptions]="{ standalone: true }">
+            </div>
+
+            <label for="inputPassword" class="sr-only"> Password </label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <i class="fas fa-lock input-icon" id="loginPassword"></i>
+                </div>
+                <input id="inputPassword" type="password" class="form-control" placeholder="Password" aria-label="Password" [(ngModel)]="password" [ngModelOptions]="{ standalone: true }">
+            </div>
+
+            <h6 id="forgotPasswordLink">
+                <a routerLink="/forgot-password" routerLinkActive="router-link-active" >Lupa Kata Sandi ?</a>
+            </h6>
+
+            <button (click)="login()" id="login" class="btn btn-lg btn-primary btn-block" value="Masuk">Masuk</button>
+        </form>
+    </div>
+</ng-template>

@@ -1,0 +1,29 @@
+<div (scroll)="windowScroll($event)"></div>
+<div id="indexList">
+    <ng-container *ngIf="true; else emptyAppointmentIndex">
+        <cdk-virtual-scroll-viewport itemSize="50" class="selectableIndex" (scroll)="onScroll($event)">
+            <ng-container *cdkVirtualFor="let item of result" >
+                <a (click)="selectReceipt(item.appointment_id)" class="list-group-item list-group-item-action flex-column align-items-start clickable">
+                    <p class="mb-1">
+                        {{ item.created_date | date:'dd MMM yyyy' }}
+                    </p>
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">
+                            {{ item.appointment_id }}
+                        </h5>
+                    </div>
+                    <p class="mb-1">
+                        {{ item.provider_name }}
+                    </p>
+                </a>
+            </ng-container>
+            <div *ngIf="isLoading">
+                <app-daftaro-spinner></app-daftaro-spinner>
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </ng-container>
+
+    <ng-template #emptyAppointmentIndex>
+        <p>Belum ada Invoice</p>
+    </ng-template>
+</div>

@@ -1,0 +1,33 @@
+<div class="text-center">
+    <form class="simple-form">
+        <a routerLink="/home">
+            <img class="mb-4" src="../../assets/images/logo.png" alt="logo daftaro" width="72" height="72">
+        </a>
+
+        <!--
+        <div *ngIf="!valid_pass && click" class="alert alert-danger">
+            Password anda tidak valid
+        </div>
+
+        <div *ngIf="not_same && click" class="invalid-">
+            Password baru dengan password ulang harus sama
+        </div>
+        -->
+
+        <h1 class="h3 mb-3 font-weight-normal">Reset Password</h1>
+
+        <div class="form-group">
+            <label for="inputNew">Kata Kunci Baru</label>
+            <input type="password" [(ngModel)]="newPass" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="inputNew">Ulangi Kata Kunci</label>
+            <input type="password" [(ngModel)]="repeatPass" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <input (click)="submit()" class="btn btn-lg btn-primary btn-block" type="button" value="Ubah">
+        </div>
+    </form>
+</div>

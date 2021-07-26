@@ -1,0 +1,61 @@
+#profilePicture {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+#profileButton {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#profilePlaceholder:hover #profilePicture {
+    opacity: 0.3;
+}
+
+#profilePlaceholder:hover #profileButton {
+    opacity: 1;
+}
+
+#profilePlaceholder {
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+#profilePlaceholder, #profilePicture {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+option {
+    font-family: 'Daftaro';
+}
+
+/*
+button, input {
+    overflow: visible;
+}
+
+.btn {
+    margin-top: 20px;
+    border-radius: 35px;
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+}
+
+label {
+    text-align: center;
+}
+*/

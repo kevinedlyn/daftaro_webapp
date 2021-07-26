@@ -1,0 +1,57 @@
+#result {
+    margin-top: 20px;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h6 {
+    font-weight: normal;
+    color: white;
+    margin-left: 20px;
+}
+
+.profile-card {
+    width: auto;
+    background-image: linear-gradient(to top left, #007bff,#d3d3d3);
+}
+
+.card-title {
+    margin-left: 20px;
+    color: white;
+}
+
+.card-horizontal {
+    display: flex;
+    margin: auto;
+    border-radius: 25px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-radius: 35px;
+    width: 250px;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.btn-warning {
+    border-radius: 35px;
+    width: 250px;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.icon {
+    margin-top: 20px;
+    margin-right: 20px;
+    mix-blend-mode: multiply;
+}
+
+.fit-icon {
+    font-size: 16px;
+    padding: 10px;
+    background-image: linear-gradient(to top left ,#007bff, #d3d3d3);
+}

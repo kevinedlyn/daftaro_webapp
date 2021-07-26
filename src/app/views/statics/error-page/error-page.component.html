@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Error</title>
+  </head>
+  <body>
+    <div class="text-center">
+      <form class="simple-form">
+        <a routerLink="/login">
+          <img class="mb-4" src="../../assets/images/logo.png" alt="logo daftaro" width="72" height="72">
+        </a>
+        <div *ngIf="error_id === '500'">
+          <img src="../../assets/images/page_error.png">
+        </div>
+        <div *ngIf="error_id === '404'">
+          <img src="../../assets/images/page_not_found.jpg">
+        </div>
+        <h1 class="h3 mb-3 font-weight-normal">{{title}}</h1>
+        <h6 id="forgotPasswordLink">{{content}}</h6>
+        <div *ngIf="error_id == '404'">
+          <a routerLink="/">Return to Homepage</a>
+        </div>
+        <div *ngIf="error_id == '500'">
+          <p style= "margin-top: 35px;">Please try your request again in a moment or talk to Us:
+          <a href="mailto: contact@daftaro.com">contact@daftaro.com</a></p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+<div id="result" class="container" *ngIf="isLoading === false">
+    <h1 class="text-center" style="font-weight: bold; margin-top: 20px; margin-bottom: 10px;">PROFIL</h1>
+    
+    <div *ngIf="message" class="alert alert-danger col-12">
+        {{message}}
+    </div>
+
+    <app-detail-profile [profileForm]="profileForm" [profile]="profile"></app-detail-profile>
+
+    <div id="buttonGroup" class="text-center mb-3">
+        <span *ngIf="isLinked else linkButton">
+            <span *ngIf="hasAccess">
+                <button (click)="save()" id="accountSubmit"  class="btn btn-primary mr-3" type="button">
+                    <span><i class="fas fa-save" style="margin-right: 10px;  margin-top: 5px;"></i>Simpan</span>
+                </button>
+            </span>
+            <button  (click)="unlink()" id="accountDelete" class="btn btn-danger" type="button" [class.d-none]="isMainProfile">
+                <span><i class="fas fa-trash-alt" style="margin-right: 10px; margin-top: 5px;"></i>Hapus</span>
+            </button>
+        </span>
+
+        <ng-template #linkButton>
+            <button (click)="link()"  type="button" class="btn btn-success ml-3">
+                <span><i class="fas fa-check-circle" style="margin-right: 10px;"></i>Link Pasien</span>
+            </button>
+        </ng-template>
+    </div>
+</div>
+
+<h1 *ngIf="isLoading">
+    <app-daftaro-spinner></app-daftaro-spinner>
+</h1>

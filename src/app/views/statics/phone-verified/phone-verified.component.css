@@ -1,0 +1,56 @@
+img {
+    fill: none;
+}
+
+.container {
+    margin-top: 40px;
+}
+
+@media (min-width : 992px) {
+    #phone-email-img {
+        margin-top: 10%;
+        width: 40%;
+        height: 40%;
+        mix-blend-mode: multiply;
+    }
+
+    #doctor-img {
+        width: 50%;
+        height: 85%;
+        margin-top: 20%;
+        margin-left: 50%;
+    }
+
+    #click {
+        margin-top: 5%;
+        justify-content: center;
+        color: #007bff;
+    }
+
+    #success-text {
+        margin-top: 10%;
+        width: 20%;
+        height: 20%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #phone-email-img {
+        width: 50%;
+        height: 50%;
+        margin-top: 10%;
+    }
+
+    #click {
+        margin-top: 5%;
+        justify-content: center;
+        color: #007bff;
+    }
+
+    #doctor-img {
+        width: 50%;
+        height: 100%;
+        margin-top: 20%;
+        margin-left: 20%;
+    }
+}

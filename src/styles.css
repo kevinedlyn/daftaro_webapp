@@ -1,0 +1,189 @@
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Black-Italic.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Bold-Italic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-ExtraBold-Italic.otf') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-ExtraBold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Light-Italic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Medium-Italic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Thin-Italic.otf') format('opentype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Daftaro';
+    src: url('assets/fonts/Objective-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+body {
+    font: 1rem;
+    background-image: url('https://daftaro.com/images/Background.png');
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+* {
+    font-family: 'Daftaro';
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+
+
+
+
+.input-icon {
+    padding: 12px;
+    background-color: #d8d8e5;
+    font-size: 20px;
+}
+
+#detail {
+    mix-blend-mode: multiply;
+    margin-top: 20px;
+}
+
+.alert-danger {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.add-data{
+    visibility: hidden;
+    margin-top: 20px;
+}
+
+#profilePicture {
+    opacity: 1;
+    transition: .5s ease;
+    width: auto;
+    backface-visibility: hidden;
+}
+
+#profilePlaceholder:hover #profilePicture {
+    opacity: 0.3;
+}
+
+#profilePlaceholder:hover #profileButton {
+    opacity: 1;
+}
+
+#profileButton {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 50%;
+}
+
+
+
+
+
+@keyframes flip {
+    0%{
+        transform: translate(-50%,-50%) rotateY(0deg);
+    }
+    
+    100%{
+        transform: translate(-50%,-50%) rotateY(360deg);
+    }
+}
+
+.bar {
+    transform: translate(-50%,-50%);
+    animation: flip 2s infinite;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 50%;
+    bottom: 0%;
+}

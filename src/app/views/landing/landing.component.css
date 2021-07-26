@@ -1,0 +1,263 @@
+.nav-link {
+    text-transform: uppercase;
+}
+
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#right-side-contact {
+    padding-left: 50px;
+    font-size: 1rem;
+    margin-top: 100px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-radius: 35px;
+    width: 150px;
+}
+
+input {
+    border-radius: 35px;
+}
+
+table {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+#contact-us {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    background-image: url(/assets/images/hospital-doctor.jpg);
+    background-size: cover;
+    height: 439px;
+    text-align: center;
+}
+
+.jumbotron .display-4 {
+    margin-top: 100px;
+    font-family: sans-serif;
+    font-size: 40px;
+    text-shadow: 1px 1px 1px;
+}
+
+body {
+    background-image: none !important;
+    text-align: justify;
+}
+
+#our-values {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.features {
+    background-image: linear-gradient(to bottom right, #43cea2, #185a9d);
+    border-radius: 25px;
+    color: white;
+    height: 90%;
+    margin-bottom: 20px;
+}
+
+.feature-color-1 {
+    background-image: linear-gradient(to bottom right, #007bff , #007bff );
+}
+
+.feature-color-2 {
+    background-image: linear-gradient(to bottom right, #e2725b , #e2725b);
+}
+
+.feature-color-3 {
+    background-image: linear-gradient(to bottom right, #007bff , #007bff );
+}
+
+.features i {
+    color: black;
+}
+
+.image-values {
+    mix-blend-mode: multiply;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+
+.what-you-can-do .container {
+    margin-top: 20px;
+}
+
+.footer {
+    background-image: none;
+}
+
+#about {
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.values-title {
+    border-bottom: 0.5px solid #1E90FF;
+    padding-bottom: 20px;
+    border-width: 5px;
+    margin-bottom: 20px;
+}
+
+#footerLinks {
+    box-sizing: border-box;
+    margin-left: 50px;
+}
+
+#contact-us {
+    border-radius: 35px;
+    color: black;
+    width: auto;
+}
+
+#contact-us h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-right: 30px;
+}
+
+.container-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#footerLinks ul {
+    list-style: none;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+#footerLinks li a {
+    text-decoration: none;
+}
+
+#footerLinks li {
+    padding: 0 10px;
+}
+
+#contactForm {
+    margin-top: 20px;
+}
+
+.services {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.what-you-can-do-title {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.what-you-can-do i {
+    color: black;
+}
+
+footer {
+    visibility: visible;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: white;
+}
+
+.card {
+    border-radius: 35px;
+}
+
+@media (max-width: 575.98px) {
+    #footerLinks {
+        margin-top: 20px;
+        height: 250px;
+        margin-left: 20px;
+    }
+
+    .card {
+        margin-top: 10px;
+    }
+
+    #information-card {
+        margin-left: 50px;
+        width: auto;
+    }
+}
+
+.card {
+    margin-bottom: 10px;
+}
+
+.border {
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+.navbar {
+    padding-top: 5px;
+}
+
+.nav-item {
+    padding-top: 20px;
+}
+
+h5 {
+    padding-top: 5px;
+    padding-bottom: 0px;
+    margin-left: 2px;
+}
+
+@media (min-width : 992px) {
+    .card {
+        margin: 0 auto;
+        float: none;
+        margin-bottom: 10px;
+    }
+
+    #footerLinks {
+        margin-top: 20px;
+        height: 50px;
+        padding-bottom: 20px;
+    }
+
+    .using-app-img {
+        width: 500px;
+        height: 300px;
+    }
+
+    .nav-link {
+        text-transform: uppercase;
+        margin-right: 30px;
+    }
+
+    .jumbotron {
+        margin-top: -75px;
+    }
+
+    .nav-link:hover::after {
+        border-bottom: 3px solid #1E90FF;
+        display: block;
+        content: '';
+        margin : auto;
+        padding-bottom: 10px;
+        margin-top: -8px;
+    }
+
+    #contact-us {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+

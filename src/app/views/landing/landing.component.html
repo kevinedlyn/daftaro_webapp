@@ -1,0 +1,344 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand"  routerLink="/landing">
+        <span >
+            <img class="rounded-circle" style="margin-right: 5px;" alt="Daftaro Logo" width="30px" height="30px" src="../../assets/images/logo.png">
+            Daftaro
+        </span>
+    </a>
+
+    <button class="navbar-toggler" type="button" aria-controls="navbarContent" [attr.aria-expanded]="!collapsed" aria-label="Toggle navigation" (click)="collapsed = !collapsed">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [class.collapse]="collapsed" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#offer">offer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#values">Values</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#FAQ">FAQ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact-us">Contact Us</a>
+            </li>
+
+            <div class="border border-dark provider text-center" style="margin-right:20px">
+                <h5 class="text-center">Provider</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a class="nav-link" routerLink="/verify-register">Register</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="nav-link" routerLink="/login">Login<span class="fas fa-sign-in-alt" style="margin-left: 10px;"></span></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="border border-dark patient text-center">
+                <h5 class="text-center">Patient</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a class="nav-link" routerLink="/verify-register">Register</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="nav-link" routerLink="/login">Login<span class="fas fa-sign-in-alt" style="margin-left: 10px;"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </ul>
+    </div>
+</nav>
+
+<!-- Jumbotron -->
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">Daftaro App</h1>
+        <p class="lead text-muted">Download now, It's Free!</p>
+        <a class="btn btn-primary my-2 mr-3" href="https://itunes.apple.com/id/app/daftaro/id1440000232?mt=8" style="display:inline-block; overflow:hidden; background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2019-04-18&kind=iossoftware&bubble=ios_apps) no-repeat; width:135px; height:40px;"></a>
+        <a class="btn btn-secondary my-2" href="https://play.google.com/store/apps/details?id=com.daftaro.www&utm_source=webBanner&utm_campaign=andoidAppDownload&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" style="display:inline-block; overflow:hidden; background:url(https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png); background-position: -11px -10px; background-size: 155px 60px; background-repeat: no-repeat; width:135px; height:40px;"></a>
+    </div>
+</div>
+
+<!-- ABOUT US -->
+<div class="container">
+    <div class="row" id="about">
+        <div class="col-sm-6">
+            <img class="img-fluid mx-auto" src="../../assets/images/using phone app.jpg" width="750px">
+        </div>
+        <div class="col-sm-6">
+            <h1 style="font-weight: bold;" class="text-center">ABOUT US</h1>
+            <p>Centralize all your healthcare reservations, as well as bookings made on behalf of your loved ones, with daftaro. Being a patient-centered tool, daftaro empowers you to take ownership and responsibilities over your own health. Daftaro is powered by commoners who aspire to increase your quality of life.</p>
+        </div>
+    </div>
+</div>
+
+<!--OUR VALUES -->
+<div class="container" id="values">
+    <div class="row justify-content-center" >
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-sm-12">
+                <h1 style="font-weight: bold;" class="text-center values-title">OUR VALUES</h1>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-sm-6">
+                <div class="card features feature-color-1">
+                    <div class="card-body text-center">
+                        <img src="../../assets/images/reservation.png" class="image-values"  width="100px" height="100px">
+                        <h4 class="card-title" style="margin-top: 20px;">Remote Reservation</h4>
+                        <p style="text-align: justify;">Get used to the convenience of booking, paying, and managing all your and your loved ones’ healthcare reservations in daftaro. No more forgotten appointments, now you are always reminded of your and your loved ones’ healthcare sessions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="card features feature-color-2">
+                    <div class="card-body text-center">
+                        <img src="../../assets/images/uncertainty.png" class="image-values"  width="100px" height="100px">
+                        <h4 class="card-title" style="margin-top: 20px;">Reduce uncertainty</h4>
+                        <p style="text-align: justify;">Be informed. Eliminate guessing games. Prepay your healthcare consultation for peace of mind. No hidden costs. No more surprise expenses. Be informed. Get notified when your healthcare providers adjust their office hours. Eliminate guessing games. Be able to estimate your arrival time. Minimize waiting time in healthcare facilities. Know your queueing number in advance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="FAQ">
+    <h1 class="text-center" style="margin-bottom: 20px;font-weight: bold;">FAQ</h1>
+
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+        <ngb-panel title="Bagaimana cara saya memulai ?">
+            <ng-template ngbPanelContent>
+                Klik <a href="https://linktr.ee/daf.ta.ro"> disini </a> untuk mendapat penjelasan lebih lanjut
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel title="Pembayaran apa sudah tersedia didalam daftaro ?">
+            <ng-template ngbPanelContent>
+                <ul>
+                    <li>E-Wallet : OVO, GOPAY, DANA</li>
+                    <li>VA: Mandiri, Permata</li>
+                    <li>Cash: Alfamart, Indomaret</li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel title="Apaka saya bisa menggunakan BPJS / Asuransi ?">
+            <ng-template ngbPanelContent>
+                Saat ini belum tersedia. Stay Tuned untuk update selanjutnya !
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel title="Daerah mana saja yang dapat menggunakan layanan daftaro ?">
+            <ng-template ngbPanelContent>
+                Untuk Pelayanan Offline saat ini daftaro baru mencakup beberapa daerah di Jawa Timur seperti Surabaya dan Probolinggo, namun untuk pelayanan telemedis dapat dilakukan dari mana saja sesuai jadwal di tempat praktek
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel title="Bagaimana cara pasien mendapat resep obat dalam layanan telemedis ?">
+            <ng-template ngbPanelContent>
+                Setelah pasien selesai berkonsultasi tim daftaro akan memberikan invoice beserta link pembayaran obat melalui sms / WA, setelah pembayaran obat selesai, obat akan diantar. mohon bersedia menunggu
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel title="Apa maksud status 'Rejected' pada booking saya ?">
+            <ng-template ngbPanelContent>
+                Kemungkinan besar karena kapasitas pelayanan pada sesi itu penuh, sehingga anda disarankan mengganti jadwal pertemuan
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel title="Apa maksud status 'Pending' pada booking saya ?">
+            <ng-template ngbPanelContent>
+                Setelah pasien membayar, pihak provider akan memverifikasi kapasitas layanan pada jadwal dokter yang dipilih, status akan menjadi "Approved" secara otomatis setelah proses verifikasi berhasil, mohon menunggu
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel title="Bagaimana cara melakukan booking tanpa mempunyai akun ?">
+            <ng-template ngbPanelContent>
+                Anda dapat didaftarkan oleh akun yang sudah ada dengan cara "link" biodata pasien. Tidak semua data anda bisa dilihat oleh akun lain karena kami menjaga keamanan data pasien
+            </ng-template>
+        </ngb-panel>
+        
+    </ngb-accordion>
+</div>
+
+<div class="container" id="offer">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="text-center what-you-can-do-title">WHAT WE OFFER</h1>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card features feature-color-1">
+                <div class="card-body text-center">
+                  <i class="fas fa-calendar-check fa-3x" style="margin-top: 20px;" aria-hidden="true"></i>
+                  <h5 class="card-title" style="margin-top: 20px;">APPOINTMENT BOOKING</h5>
+                  <p>Pasien dapat melihat history booking rumah sakit yang akan dikunjingin kedepannya atau yang sudah pernah dikunjungi sebelumnya</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card features feature-color-2">
+                <div class="card-body text-center">
+                    <i class="fas fa-file-invoice-dollar fa-3x" style="margin-top: 20px;" aria-hidden="true"></i>
+                    <h4 style="margin-top: 20px;">HISTORY INVOICE</h4>
+                    <p>Pasien dapat melihat history invoice booking rumah sakit yang sudah dikunjingin</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card features feature-color-3">
+                <div class="card-body text-center">
+                    <i class="fas fa-users fa-3x" style="margin-top: 20px;" aria-hidden="true"></i>
+                    <h4 style="margin-top: 20px;">PROFILE</h4>
+                    <p>Pasien dapat mengedit atau memperbaiki profil yang sudah terdaftar dalam sistem</p>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+
+<div class="container" id="contact-us">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 style="margin-bottom: 20px; text-align: center; font-weight: bold;">CONTACT US</h1>
+        </div>
+    </div>
+
+    <div *ngIf="success && click" class="alert alert-success">
+        Pengiriman Pertanyaan telah berhasil
+    </div>
+
+    <div *ngIf="!success && click" class="alert alert-danger">
+        Pengiriman Pertanyaan gagal
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12" style="margin-bottom: 20px;">
+            <img class="text-center" style="margin-left:20px;border-radius: 35px;" width="1040px" height="350px" src="../../assets/images/Capture.PNG">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-xl-6">
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Name*</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" required [(ngModel)]="name" [ngModelOptions]="{ standalone: true }" />
+                </div>
+
+                <div *ngIf="invalid_name" class="alert alert-danger">
+                    Mohon mengisi nama dengan valid
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email*</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" required [(ngModel)]="email" [ngModelOptions]="{ standalone: true }" />
+                </div>
+
+                <div *ngIf="" class="alert alert-danger">
+                    Mohon mengisi email dengan valid
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="subject" class="col-sm-2 col-form-label">Subject</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="subject" required [(ngModel)]="subject" [ngModelOptions]="{ standalone: true }" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inquiry" class="col-sm-2 col-form-label">Inquiry *</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="inquiry" style="border-radius: 35px;" required [(ngModel)]="inquiry" [ngModelOptions]="{ standalone: true }"></textarea>
+                </div>
+                <div *ngIf="invalid_inquiry" class="alert alert-danger">
+                    Mohon mengisi pertanyaan dengan valid
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 text-center">
+                * means mandatory
+            </div>
+
+            <div class="form-group col-sm-12 text-center">
+                <button type="submit" (click)="contact()" style="padding-top: 10px;" class="btn btn-primary">
+                    Submit
+                </button>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-xl-6" id="information-card">
+            <div class="row">
+                <div class="card" style="width:auto; background-color: #007bff; color: white;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <span style="margin-top: 20px;margin-right: 10px;" class="fas fa-location-arrow fa-3x"></span>
+                            </div>
+
+                            <div class="col-9">
+                                <h5 style="font-weight: bold">Location</h5>
+                                <h6 style="font-weight: normal;">Jl. WR Supratman No 28 </h6>
+                                <h6 style="font-weight: normal;">Surabaya 60264</h6>
+                            </div>
+                        </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card" style="width: auto; background-color: #e2725b; color: white;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <span style="margin-right: 20px; margin-top: 5px;" class="fas fa-envelope fa-3x"></span>
+                            </div>
+                            <div class="col-9">
+                                <h4 style="font-weight: bold; margin-left: 10px;">Email</h4>
+                                <a href="contact@daftaro.com" style="color: white;">
+                                <h6 style=" margin-left: 10px;">contact@daftaro.com</h6></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="card" style="width: auto; background-color: #d3d3d3; color: black;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <span style="margin-top: 20px; margin-right: 60px;" class="fas fa-calendar-alt fa-3x"></span>
+                            </div>
+
+                            <div class="col-9">
+                                <h5 style="font-weight: bold;">Jadwal Kerja</h5>
+                                <h6 style="font-weight: normal;">Senin - Jum'at</h6>
+                                <h6 style="font-weight: normal;">08:00 - 17:00 WIB</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark">
+    <div id="footerLinks">
+        <ul class="container text-center">
+            <li class="d-md-inline">© 2020 daftaro.com</li>
+            <li class="d-md-inline"><a href="https://daftaro.com/privacyPolicy">Kebijakan Privasi</a></li>
+            <li class="d-md-inline"><a href="https://daftaro.com/tos">Syarat dan Ketentuan</a></li>
+        </ul>
+      </div>
+</footer>

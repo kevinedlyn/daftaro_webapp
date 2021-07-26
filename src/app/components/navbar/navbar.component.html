@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-sm navbar-inverse navbar-fixed-top bg-dark navbar-dark">
+    <div class="navbar-header">
+        <button class="navbar-toggler" aria-controls="navbarContent" [attr.aria-expanded]="!collapsed" aria-label="Toggle navigation" (click)="collapsed = !collapsed"> <!-- data-toggle="collapse", data-target="#daftaroNavBar" -->
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" routerLink="/appointment">
+            <img src="../../assets/images/logo.png" alt="Daftaro Logo" width="30" height="30" class="rounded-circle">
+        </a>
+    </div>
+
+    <div ngbNav class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+        <ul class="navbar-nav">
+            <li class="nav-item" ngbDropdown>
+                <a class="nav-link" ngbDropdownToggle id="appointmentDropdown" role="button">
+                    Pertemuan
+                </a>
+                <div ngbDropdownMenu aria-labelledby="appointmentDropdown" class="dropdown-menu">
+                    <a ngbDropdownItem routerLink="/appointment"> Dashboard </a>
+                    <a ngbDropdownItem routerLink="/receipt"> Invoices </a>
+                </div>
+            </li>
+
+            <li class="nav-item" ngbDropdown>
+                <a class="nav-link" ngbDropdownToggle id="patientDropdown" role="button">
+                    Pengguna
+                </a>
+                <div ngbDropdownMenu aria-labelledby="patientDropdown" class="dropdown-menu dropdown-menu-right">
+                    <a ngbDropdownItem routerLink="/profile"> Profil</a> <!--  (click)="$event.preventDefault()" -->
+                    <a ngbDropdownItem routerLink="/change-password"> Ganti Kata Kunci </a>
+                    <a ngbDropdownItem (click)="logout()"> Keluar </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

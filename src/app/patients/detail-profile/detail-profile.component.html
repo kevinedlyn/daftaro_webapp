@@ -1,0 +1,142 @@
+<form [formGroup]="profileForm">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <div id="profilePlaceholder">
+                <div class="form-group">
+                    <div *ngIf="!profile.profile_picture" >
+                        <img id="profilePicture" class="rounded-circle" src="../../assets/images/logo.png" alt="Profile Picture">
+                    </div>
+
+                    <div *ngIf="profile.profile_picture" >
+                        <img id="profilePicture" class="rounded-circle" src="{{ profile.profile_picture }}" alt="Profile Picture">
+                    </div>
+
+                    <input class="d-none" (change)="uploadPhoto($event)"  type="file" #inputPhoto accept="image/jpeg, image/jpg, image/png">
+                    <input type="hidden" formControlName="profile_picture" id="photoTexts">
+                </div>
+
+                <button class="btn btn-secondary rounded-circle" id="profileButton" (click)="inputPhoto.click()" type="button">
+                    <span class="fas fa-camera"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label for="inputName">Nama Lengkap* :</label>
+            <input id="inputName" [class.is-invalid]="profileForm.get('full_name').invalid && profileForm.get('full_name').touched" formControlName="full_name" class="form-control" type="text">
+            <div *ngIf="profileForm.get('full_name').invalid && profileForm.get('full_name').touched" class="text-danger">
+                Mohon mengisi nama dengan valid
+            </div>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label for="inputBPJS">Nomor BPJS :</label>
+            <input id="inputBPJS" formControlName="bpjs_number" class="form-control" type="text">
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label for="inputBirthdate">Tanggal Lahir* :</label>
+            <input id="inputBirthdate" [class.is-invalid]="profileForm.get('birthdate').invalid && profileForm.get('birthdate').touched" class="form-control" type="date" formControlName="birthdate">   
+            <div *ngIf="profileForm.get('birthdate').invalid && profileForm.get('birthdate').touched" class="text-danger">
+                Mohon mengisi Birthdate dengan valid
+            </div>
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label for="inputGender">Jenis Kelamin* :</label>
+            <select class="custom-select" id="inputGender" formControlName="gender" [class.is-invalid]="profileForm.get('gender').invalid && profileForm.get('gender').touched">
+                <option id="male" value="Pria">Male</option>
+                <option id="female" value="Wanita">Female</option>
+            </select>
+            <div *ngIf="profileForm.get('gender').invalid && profileForm.get('gender').touched" class="text-danger">
+                Mohon memilih Jenis Kelamin
+            </div>
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label for="inputBloodtype">Golongan Darah :</label>
+            <select id="inputBloodtype" class="custom-select" formControlName="blood_type">
+                <option value="-">-</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="O">O</option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label for="inputRhesus">Rhesus :</label>
+            <select id="inputRhesus" class="custom-select" formControlName="rhesus">
+                <option></option>
+                <option value="-">-</option>
+                <option value="+">+</option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-4">
+            <label for="inputIdentity">Tipe Identitas :</label>
+            <select id="inputIdentity" class="custom-select" formControlName="identity_type">
+                <option value="KTP">KTP</option>
+                <option value="SIM">SIM</option>
+                <option value="Passport" selected>Passport</option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-4">
+            <label for="inputNIK">Nomor Identitas :</label>
+            <input id="inputNIK" [class.is-invalid]="profileForm.get('identity_number').invalid && profileForm.get('identity_number').touched" formControlName="identity_number" class="form-control" type="text">
+        </div>
+
+        <div class="form-group col-sm-4">
+            <label for="inputRedCross">ID Palang Merah :</label>
+            <input id="inputRedCross" formControlName="red_cross_number" class="form-control" type="text">
+        </div>
+
+        <div class="form-group col-12">
+            <label for="inputProof">Bukti Identitas :</label>
+            <input class="d-none" (change)="uploadIdentityProof($event)" type="file" id="inputProof" #inputProof accept="image/jpeg, image/jpg, image/png">
+            <input type="hidden" formControlName="identity_proof" id="proofTexts">
+            <button class="btn btn-secondary ml-3" id="identityButton" (click)="inputProof.click()" type="button">
+                Upload
+            </button>
+        </div>
+
+        <div *ngIf="profile.identity_proof" class="form-group col-12">
+            <img id="inputProofImage" class="secondary" src="{{ profile.identity_proof }}" alt="Identity Proof" width="100%">
+        </div>
+
+        <div class="form-group col-12">
+            <label for="inputAddress">Alamat :</label>
+            <textarea id="inputAddress" class="form-control" rows=5 formControlName="home_address">
+            </textarea>
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label for="inputCountry">Negara :</label>
+            <input id="inputCountry" formControlName="home_country" class="form-control" type="text">
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label for="inputProvinsi">Provinsi :</label>
+            <select id="inputProvinsi" class="custom-select" formControlName="home_province" (change)="changeProvince($event.target.value)">
+                <option value="{{ province.provinsi }}" *ngFor="let province of provinces">
+                    {{ province.provinsi }}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label for="inputCity">Kota :</label>
+            <select id="inputCity" class="custom-select" formControlName="home_city">
+                <option value="{{ city }}" *ngFor="let city of cities">
+                    {{ city }}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label for="inputCode">Kode Pos :</label>
+            <input id="inputCode" class="form-control" type="text" formControlName="home_zipcode">
+        </div>
+    </div>
+</form> 

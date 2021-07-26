@@ -1,0 +1,35 @@
+/*
+.bar {
+    width: 100%;
+}
+*/
+
+.loading-detail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.approved {
+    color: green;
+}
+
+.rejected {
+    color: red;
+}
+
+.canceled {
+    color: orange;
+}
+
+.pending {
+    color: blue;
+}
+
+.unpaid {
+    color: gray;
+}

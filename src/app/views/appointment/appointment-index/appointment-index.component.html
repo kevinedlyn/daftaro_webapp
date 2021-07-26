@@ -1,0 +1,60 @@
+<div (scroll)="windowScroll($event)"></div>
+<div id="indexList">
+    <ng-container *ngIf="true; else emptyAppointmentIndex">
+        <cdk-virtual-scroll-viewport itemSize="50" class="selectableIndex" (scroll)="onScroll($event)">
+            <ng-container *cdkVirtualFor="let appointment of result">
+                <a class="index list-group-item list-group-item-action flex-column align-items-start clickable" (click)="selectDetail(appointment.appointment_detail_id)">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">
+                            {{ appointment.service_name }}
+                        </h5>
+                        <ng-container *ngIf="appointment.queue_number > 0; else noQueue">
+                            <ng-container [ngSwitch]="appointment.status">
+                                <span *ngSwitchCase="'REPLACED'" class="btn btn-secondary m-1 queue background-replaced">{{ appointment.queue_number }}</span>
+                                <span *ngSwitchCase="'PENDING'" class="btn btn-secondary m-1 queue background-pending">{{ appointment.queue_number }}</span>
+                                <span *ngSwitchCase="'APPROVED'" class="btn btn-secondary m-1 queue background-approved">{{ appointment.queue_number }}</span>
+                                <span *ngSwitchCase="'USER_CANCEL'" class="btn btn-secondary m-1 queue background-canceled">{{ appointment.queue_number }}</span>
+                                <span *ngSwitchCase="'REJECTED'" class="btn btn-secondary m-1 queue background-rejected">{{ appointment.queue_number }}</span>
+                                <span *ngSwitchDefault class="btn btn-secondary m-1 queue background-unpaid">{{ appointment.queue_number }}</span>
+                            </ng-container>
+                        </ng-container>
+
+                        <ng-template #noQueue>
+                            <span></span>
+                        </ng-template>
+                    </div>
+
+                    <p class="mb-1">
+                        {{ appointment.appointment_datetime | date:'dd MMM yyyy' }}
+                    </p>
+                    <p class="mb-1" id="provider_name">
+                        {{ appointment.provider_name }}
+                    </p>
+                    <p class="mb-1">
+                        {{ appointment.service_name }}
+                    </p>
+                    <p class="mb-1 detailId">
+                        {{ appointment.appointment_detail_id }}
+                    </p>
+
+                    <ng-container [ngSwitch]="appointment.status">
+                        <p *ngSwitchCase="'REPLACED'" class="indexTitle replaced"> Terganti </p>
+                        <p *ngSwitchCase="'PENDING'" class="indexTitle pending"> Daftar Tunggu </p>
+                        <p *ngSwitchCase="'APPROVED'" class="indexTitle approved"> Terjadwal </p>
+                        <p *ngSwitchCase="'USER_CANCEL'" class="indexTitle canceled"> Dibatalkan </p>
+                        <p *ngSwitchCase="'REJECTED'" class="indexTitle rejected"> Jadwal Ulang </p>
+                        <p *ngSwitchDefault class="indexTitle unpaid"> Belum Bayar </p>
+                    </ng-container>
+                </a>
+            </ng-container>   
+        </cdk-virtual-scroll-viewport>
+        
+        <div *ngIf="isLoading">
+            <app-daftaro-sidebar-spinner></app-daftaro-sidebar-spinner>
+        </div>
+    </ng-container>
+
+    <ng-template #emptyAppointmentIndex>
+        <p>Belum ada appointment</p>
+    </ng-template>
+</div>

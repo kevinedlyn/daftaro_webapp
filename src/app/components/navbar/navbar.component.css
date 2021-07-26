@@ -1,0 +1,7 @@
+#navbarContent {
+    cursor: pointer;
+}
+
+#patientDropdown, #appointmentDropdown {
+    color: white;
+}

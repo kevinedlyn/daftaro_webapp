@@ -1,0 +1,64 @@
+#indexList {
+    width: 20%;
+    border-right: 3px solid gray;
+    display: inline-block;
+    height: 94vh;
+    overflow: scroll;
+}
+
+#detail {
+    width: 80%;
+    float: right;
+}
+
+.pending {
+    color: blue;
+}
+
+.approved {
+    color: green;
+}
+
+.replaced {
+    color: darkgoldenrod;
+}
+
+.canceled {
+    color: orange;
+}
+
+.rejected {
+    color: red;
+}
+
+.unpaid {
+    color: gray
+}
+
+.background-pending {
+    background-color: blue;
+}
+
+.background-approved {
+    background-color: green;
+}
+
+.background-replaced {
+    background-color: lightgreen;
+}
+
+.background-canceled {
+    background-color: orange;
+}
+
+.background-rejected {
+    background-color: red;
+}
+
+.background-unpaid {
+    background-color: gray
+}
+
+.selectableIndex {
+    height: 100%;
+}
