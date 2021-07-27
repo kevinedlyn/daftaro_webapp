@@ -6,6 +6,7 @@ import { AuthService } from './auth.service';
 import { GlobalService } from './global.service';
 import { AppointmentService } from './appointment.service';
 import { ProfileService } from './profile.service';
+import { ProviderService } from './provider.service';
 
 @NgModule()
 export class ServicesModule { 
@@ -17,7 +18,8 @@ export class ServicesModule {
                 GlobalService,
                 AppointmentService,
                 ProfileService,
-                NgxImageCompressService
+                NgxImageCompressService,
+                ProviderService
             ]
         }
     }

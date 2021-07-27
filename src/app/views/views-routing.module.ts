@@ -12,6 +12,7 @@ import { VerifyRegisterComponent } from './verify-register/verify-register.compo
 import { ErrorPageComponent } from './statics/error-page/error-page.component';
 import { PhoneVerifiedComponent } from './statics/phone-verified/phone-verified.component';
 import { EmailVerifiedComponent } from './statics/email-verified/email-verified.component';
+import { BookAppoinmentComponent } from './book-appoinment/book-appoinment.component';
 
 const routes: Routes = [
     {
@@ -39,6 +40,11 @@ const routes: Routes = [
     }, {
         path : 'phone-verified',
         component : PhoneVerifiedComponent,
+        pathMatch: 'full'
+    }, {
+        path : 'book-appointment',
+        component : BookAppoinmentComponent, 
+        canActivate: [ AuthGuard ], 
         pathMatch: 'full'
     }
 ];

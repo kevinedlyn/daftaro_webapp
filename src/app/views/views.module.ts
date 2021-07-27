@@ -22,6 +22,7 @@ import { VerifyRegisterComponent } from './verify-register/verify-register.compo
 import { ErrorPageComponent } from './statics/error-page/error-page.component';
 import { PhoneVerifiedComponent } from './statics/phone-verified/phone-verified.component';
 import { EmailVerifiedComponent } from './statics/email-verified/email-verified.component';
+import { BookAppoinmentComponent } from './book-appoinment/book-appoinment.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import { EmailVerifiedComponent } from './statics/email-verified/email-verified.
         VerifyRegisterComponent,
         ErrorPageComponent,
         PhoneVerifiedComponent,
-        EmailVerifiedComponent
+        EmailVerifiedComponent,
+        BookAppoinmentComponent
     ], imports: [
         ComponentsModule,
         CommonModule,

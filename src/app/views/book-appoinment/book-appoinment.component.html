@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+
+
+<!--ngIf nya jangan lupa-->
+<div id="result" class="container">
+    <h1 class="text-center" style="margin-top: 20px;">Health Service Booking</h1>
+
+    <div class="form-group col-12">
+        <label for="inputHealthService">Health Service :</label>
+        <input type="text" id="inputHealthService"  class="form-control"  name="health_service" maxlength="100">   
+    </div>
+
+    <div class="form-group col-12">
+        <label for="inputPatient">Patient</label>
+        <input type="text" id="inputPatient"  class="form-control"  name="patient" maxlength="100">   
+    </div>
+
+    <div class="form-group col-12">
+        <label for="inputServiceProvider">Service Provicer :</label>
+        <select #cricket (change)="providerUpdate($event)"  class="form-group col-12">
+            <option value="default">----</option>
+            <option *ngFor="let temp of result" [value]="temp.provider_id">
+                {{temp.provider_name}} - {{temp.address}}
+            </option>
+        </select>
+    </div>
+
+    <p>Hasil Provider : {{providerSelected}}</p>
+
+    <div class="form-group col-12">
+        <label for="inputBookingTime">Booking Time :</label>
+        <input type="date"id="inputBookingTime"  class="form-control"  name="booking_time" maxlength="100">   
+    </div>
+
+    <div class="form-group col-12">
+        <label for="ConsultationFee">Consultation Fee : </label>
+        <input type="text"  id="ConsultationFee"  class="form-control"  name="consultation_fee" maxlength="100">   
+    </div>
+  
+    <div class="form-group col-12 text-center">
+        <button type="submit" class="btn btn-warning" (click)="createBookingFee()">
+            <span>
+                Pay Booking Fee
+            </span>
+        </button>
+    </div>
+
+    <div class="form-group col-12 text-center">
+        <button type="submit" class="btn btn-default" (click)="bookAnotherService()">
+            <span>
+                Booking Another Service
+            </span>
+        </button>
+    </div>
+
+</div>

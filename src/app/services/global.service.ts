@@ -83,7 +83,7 @@ export class GlobalService {
         return this._cookieService.get(Setting.RESET_PASSWORD_KEY);
     }
     
-    async getAuthHeader(destinationURL : string, token: string =  JSON.parse(localStorage.getItem('REFRESH_TOKEN_KEY'))) {
+    async getAuthHeader(destinationURL : string, token: string =  JSON.parse(localStorage.getItem('REFERSH_TOKEN_KEY'))) {
         var header = await this.http.post(this.refreshTokenURL, { refresh_token : token, destination_URL : destinationURL }).toPromise();
 
         return {
