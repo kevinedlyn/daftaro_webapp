@@ -1,44 +1,105 @@
 <app-navbar></app-navbar>
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+<script src="https://kit.fontawesome.com/cf581c15c0.js" crossorigin="anonymous"></script>
 
 <!--ngIf nya jangan lupa-->
 <div id="result" class="container">
     <h1 class="text-center" style="margin-top: 20px;">Health Service Booking</h1>
 
     <div class="form-group col-12">
-        <label for="inputHealthService">Health Service :</label>
-        <input type="text" id="inputHealthService"  class="form-control"  name="health_service" maxlength="100">   
-    </div>
-
-    <div class="form-group col-12">
-        <label for="inputPatient">Patient</label>
-        <input type="text" id="inputPatient"  class="form-control"  name="patient" maxlength="100">   
-    </div>
-
-    <div class="form-group col-12">
-        <label for="inputServiceProvider">Service Provicer :</label>
-        <select #cricket (change)="providerUpdate($event)"  class="form-group col-12">
+        <label for="inputServiceProvider">Service Provider :</label>
+        <select #cricket (change)="providerUpdate($event)"  class="form-group col-12" style="padding:10px   ">
             <option value="default">----</option>
-            <option *ngFor="let temp of result" [value]="temp.provider_id">
+            <option *ngFor="let temp of providerResult" [value]="temp.provider_id">
                 {{temp.provider_name}} - {{temp.address}}
             </option>
         </select>
     </div>
 
-    <p>Hasil Provider : {{providerSelected}}</p>
+    <!-- <p>Hasil Provider : {{providerSelected}}</p> -->
 
     <div class="form-group col-12">
-        <label for="inputBookingTime">Booking Time :</label>
+        <label for="inputHealthService">Health Service :</label>
+        <select #cricket (change)="serviceUpdate($event)"  class="form-group col-12" style="padding:10px   ">
+            <option value="default">----</option>
+            <option *ngFor="let temp of serviceResult" [value]="temp.service_id">
+                {{temp.service_name}}
+            </option>
+        </select>  
+    </div>
+
+    <!-- <p>Hasil Services : {{serviceSelected}}</p> -->
+
+    <div class="form-group col-12">
+        <label for="inputServiceProvider">Choose Doctor :</label>
+        <select #cricket (change)="doctorUpdate($event)"  class="form-group col-12" style="padding:10px   ">
+            <option value="default">----</option>
+            <option *ngFor="let temp of practitionerResult" [value]="temp.practitioner_id">
+                {{temp.full_name_with_title}} - {{temp.specialities}}
+            </option>
+        </select>
+    </div>
+
+    <!-- <p>Hasil Doctor : {{doctorSelected}}</p> -->
+
+    <div class="form-group col-12">
+        <label for="inputBookingTime">Select Date</label>
         <input type="date"id="inputBookingTime"  class="form-control"  name="booking_time" maxlength="100">   
     </div>
 
+
+    <div class="form-group col-12">
+        <label for="inputPatient">Patient</label>
+        <!-- <input type="text" class="form-control"   [value]="profiles[0].full_name">    -->
+        <select #cricket (change)="patientUpdate($event)"  class="form-group col-12" style="padding:10px   ">
+            <option value="default">----</option>
+            <option *ngFor="let temp of profiles" [value]="temp.profile_id">
+                {{temp.full_name}} -  {{temp.profile_id}}
+            </option>
+        </select>
+    </div>
+    
+    <div class="form-group col-12">
+        <label for="inputPatient">Booking Time</label>
+        <i class="fas fa-video"></i>
+        <select #cricket (change)="scheduleUpdate($event)"  class="form-group col-12" style="padding:10px">
+            <option value="default">----</option>
+            <option *ngFor="let temp of providerArrofDetailSchedule,;let i = index" [value]="i">
+                {{providerDateSchedule[i]}}, Schedule Time :  {{temp.schedule_time}}, Teleconference : {{temp.teleconference}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group col-12">
+        <label for="inputPatient">Payment Method</label>
+        <select #cricket (change)="paymentUpdate($event)"  class="form-group col-12" style="padding:10px">
+            <option value="default">----</option>
+            <option *ngFor="let temp of paymentMethodResult,;let i = index" [value]="temp.code">
+                {{temp.code}}
+            </option>
+        </select>
+    </div>
+
+    <!-- <p>Schedule ID : {{scheduleSelected}}</p> -->
+
     <div class="form-group col-12">
         <label for="ConsultationFee">Consultation Fee : </label>
-        <input type="text"  id="ConsultationFee"  class="form-control"  name="consultation_fee" maxlength="100">   
+        <input type="text"  [value]="ConsultationFee"  class="form-control"  name="consultation_fee" maxlength="100">   
+    </div>
+
+    <div class="form-group col-12">
+        <label for="inputPatient">Promo Code</label>
+        <select #cricket (change)="promocodeUpdate($event)"  class="form-group col-12" style="padding:10px">
+            <option value="default">------</option>
+            <option *ngFor="let temp of filteredpromocode,;let i = index" [value]="temp.title">
+                {{temp.title}}
+            </option>
+        </select>
     </div>
   
     <div class="form-group col-12 text-center">
-        <button type="submit" class="btn btn-warning" (click)="createBookingFee()">
+        <button type="submit" class="btn btn-warning" (click)="createAppointment()">
             <span>
                 Pay Booking Fee
             </span>

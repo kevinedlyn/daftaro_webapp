@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { Setting } from '../util/settings';
 import { environment } from '../../environments/environment';
 
 import { AuthService } from './auth.service';
@@ -12,6 +13,7 @@ import { AppointmentDetailResponse } from '../model/appointment-detail.model';
 
 @Injectable()
 export class AppointmentService {
+    private refreshTokenURL = `${environment.apiURL}/v1/token/refresh`;
     constructor(private http : HttpClient, private _authService : AuthService, private _globalService : GlobalService) { }
 
     async getAppointmentDetail(id : number) {
@@ -51,4 +53,11 @@ export class AppointmentService {
             
         return this.http.get<ReceiptResponse>(`${environment.apiURL}${ destinationURL }`, Object.assign({ params }, headers));
     }
+
+    async addAppointment(data: any) {
+        const destinationURL = '/v1.1/appointments';
+        const headers = await this._globalService.getAuthHeader(destinationURL);
+        
+        return this.http.post<string>(`${ environment.apiURL }${destinationURL}`, data, headers);
+    }    
 }

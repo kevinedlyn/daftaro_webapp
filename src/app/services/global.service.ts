@@ -10,6 +10,7 @@ import { throwError, of, Observable } from 'rxjs';
 import { Setting } from '../util/settings';
 import { environment } from '../../environments/environment';
 import { PatientSearch } from '../model/patient.model';
+import * as CryptoJS from 'crypto-js';  
 
 @Injectable()
 export class GlobalService {
@@ -17,6 +18,12 @@ export class GlobalService {
     private logoutURL = `${environment.apiURL}/v1/logout`;
     private profileDataURL = '/v1/token/info';
     private contactURL = '/v1/healthcareproviders/shoutbox';
+
+    //for encryption
+    private plainText:string;  
+    private encryptText: string;  
+    private encRefreshTokenKey: string;  
+    private decRefreshTokenKey:string; 
     
     // do not remove these
     private expire: number | Date = Setting.cookieExpire; 
@@ -33,11 +40,15 @@ export class GlobalService {
     async prepareAllData(refreshToken: string) {
         //this._cookieService.set(Setting.REFERSH_TOKEN_KEY, refreshToken);
         localStorage.setItem('REFERSH_TOKEN_KEY', JSON.stringify(refreshToken));
+        
+        //ENCRYPT with CryptoJS
+        // let encryptRefreshTokenKey = CryptoJS.AES.encrypt(this.plainText.trim(), this.encRefreshTokenKey.trim()).toString()
+        // localStorage.setItem('REFERSH_TOKEN_KEY', JSON.stringify(encryptRefreshTokenKey));
 
         console.log("refreshToken = ", refreshToken);
         console.log("token = ", JSON.parse(localStorage.getItem('REFERSH_TOKEN_KEY')));
         //console.log("Setting.Refresh Token = ", Setting.REFERSH_TOKEN_KEY);
-        //console.log("Saved token = ", this.getRefreshToken());
+         //console.log("Setting.Refresh Token = ", Setting.REFERSH_TOKEN_KEY);
 
         const data = await this.getProfileData();
         console.log("Data = ", JSON.parse(localStorage.getItem('PROFILE_KEY')));

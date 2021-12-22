@@ -1,6 +1,6 @@
 export class Provider {
     constructor(
-        public provider_id: string,
+        public provider_id: number,
         public provider_name: string,
         public address: string,
         public city: string,
