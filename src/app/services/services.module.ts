@@ -7,6 +7,11 @@ import { GlobalService } from './global.service';
 import { AppointmentService } from './appointment.service';
 import { ProfileService } from './profile.service';
 import { ProviderService } from './provider.service';
+import { Healthcareservices } from './myservice.service';
+import { PractitionersService } from './practitioners.service';
+import { ProviderScheduleService } from './provider-schedule.service';
+import { PaymentService } from './payment.service';
+import { PromocodeService } from './promocode.service';
 
 @NgModule()
 export class ServicesModule { 
@@ -19,7 +24,12 @@ export class ServicesModule {
                 AppointmentService,
                 ProfileService,
                 NgxImageCompressService,
-                ProviderService
+                ProviderService,
+                Healthcareservices,
+                PractitionersService,
+                ProviderScheduleService,
+                PaymentService,
+                PromocodeService
             ]
         }
     }
